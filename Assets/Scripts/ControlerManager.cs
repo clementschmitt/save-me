@@ -18,32 +18,23 @@ public class ControlerManager : MonoBehaviour
         {
             foreach (Touch touch in Input.touches)
             {
-                //Swipe Gesture
-                if (!touch.deltaPosition.Equals(Vector2.zero))
-                {
-                    Debug.Log("TEST JE SWIPE");
-                }
-                else
-                {
-                    Debug.Log("TEST JE TAP");
-                }
-
+                GetSwipeDirection(touch);
             }
         }
     }
 
     private void GetSwipeDirection(Touch touch)
     {
-        if (touch.deltaPosition.x > 0)
+        if (touch.deltaPosition.x > MinSwipeInputLenght)
             Debug.Log("user is swiping to the right" + touch.deltaPosition.x);
 
-        if (touch.deltaPosition.x < 0)
+        if (touch.deltaPosition.x < -MinSwipeInputLenght)
             Debug.Log("user is swiping to the left" + touch.deltaPosition.x);
 
-        if (touch.deltaPosition.y < 0)
+        if (touch.deltaPosition.y < -MinSwipeInputLenght)
             Debug.Log("user is swiping to down" + touch.deltaPosition.y);
 
-        if (touch.deltaPosition.y > 0)
+        if (touch.deltaPosition.y > MinSwipeInputLenght)
             Debug.Log("user is swiping to up" + touch.deltaPosition.y);
     }
 }
