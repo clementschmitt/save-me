@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
 
         InitialGame();
+        //TEST
     }
 
     void Start ()
